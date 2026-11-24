@@ -411,6 +411,23 @@
                         </svg>
                     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
                     <script>
+						
+document.addEventListener("play", function(event) {
+  const backgroundMusic =
+    document.getElementById("backgroundMusic");
+
+  if (
+    event.target instanceof HTMLAudioElement &&
+    event.target !== backgroundMusic
+  ) {
+    backgroundMusic?.pause();
+
+    if (typeof updateMusic === "function") {
+      updateMusic();
+    }
+  }
+}, true);
+
                       new Vue({
                         el: "#app",
                         data() {
