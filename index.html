@@ -29,28 +29,6 @@
   </script>
 <body>
 	
-<audio id="background-music" loop preload="auto">
-  <source src="https://files.catbox.moe/67sb4b.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-const music = document.getElementById("background-music");
-
-// Thử tự động phát
-window.addEventListener("load", function () {
-  music.play().catch(function () {
-    // iPhone có thể yêu cầu người dùng chạm màn hình
-  });
-});
-
-// Phát nhạc sau lần chạm đầu tiên
-document.addEventListener("click", function () {
-  if (music.paused) {
-    music.play().catch(() => {});
-  }
-}, { once: true });
-</script>
-
     <!--=============== HEADER ===============-->
     <header class="profile container">
         <!-- Theme button -->
@@ -615,4 +593,121 @@ user-select: none!important;
 	a:hover{cursor:url("https://1.bp.blogspot.com/-nYv2dLl3oXY/YL9utYBCh8I/AAAAAAAAFtA/wII4lVw5w4k-4isGMY41heTqk8U4TJujgCLcBGAsYHQ/s0/mouse-f2.png"), auto;}
 </style>
 </body>
+	<audio id="background-music" loop preload="auto">
+
+  <source src="https://files.catbox.moe/67sb4b.mp3" type="audio/mpeg">
+
+</audio>
+
+<div id="music-popup">
+
+  <div class="music-box">
+
+    <h3>🎵 BẬT NHẠC NỀN</h3>
+
+    <p>Bạn có muốn nghe nhạc không?</p>
+
+    <button onclick="playMusic()">CÓ</button>
+
+    <button onclick="stopMusic()">KHÔNG</button>
+
+  </div>
+
+</div>
+
+<style>
+
+#music-popup {
+
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0,0,0,0.65);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 99999;
+
+}
+
+.music-box {
+
+  background: white;
+
+  padding: 25px;
+
+  border-radius: 15px;
+
+  text-align: center;
+
+  width: 280px;
+
+  color: #222;
+
+}
+
+.music-box h3 {
+
+  margin-top: 0;
+
+}
+
+.music-box button {
+
+  border: none;
+
+  padding: 10px 25px;
+
+  margin: 8px 5px;
+
+  border-radius: 20px;
+
+  cursor: pointer;
+
+  background: #222;
+
+  color: white;
+
+  font-weight: bold;
+
+}
+
+</style>
+
+<script>
+
+const music = document.getElementById("background-music");
+
+const popup = document.getElementById("music-popup");
+
+function playMusic() {
+
+  music.play().then(() => {
+
+    popup.style.display = "none";
+
+  }).catch(() => {
+
+    alert("Không thể phát nhạc. Vui lòng thử lại!");
+
+  });
+
+}
+
+function stopMusic() {
+
+  music.pause();
+
+  music.currentTime = 0;
+
+  popup.style.display = "none";
+
+}
+
+</script>
 </html>
