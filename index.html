@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 
 <html lang="vi">
@@ -9,6 +7,8 @@
   <meta charset="UTF-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#080b14">
 
   <title>Nguyen Le Thanh Loc</title>
 
@@ -26,135 +26,237 @@
 
       font-family: Arial, sans-serif;
 
+      background: #080b14;
+
     }
 
-    /* MÀN HÌNH GIỚI THIỆU */
+    /* ===== MÀN HÌNH MỞ ĐẦU ===== */
 
-    #intro-page {
+    #loc-intro {
 
-      min-height: 100vh;
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 999999;
 
       display: flex;
 
-      justify-content: center;
-
       align-items: center;
+
+      justify-content: center;
 
       padding: 20px;
 
       background:
 
-        radial-gradient(circle at top, #243b68, transparent 55%),
+        radial-gradient(circle at top, #24395f 0%, transparent 45%),
 
-        #080d19;
+        linear-gradient(135deg, #070b14, #101a2c);
 
       color: white;
 
+      text-align: center;
+
+      overflow-y: auto;
+
+      transition: opacity .5s ease, visibility .5s ease;
+
     }
 
-    .intro-card {
+    #loc-intro.loc-hidden {
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      pointer-events: none;
+
+    }
+
+    .loc-intro-card {
 
       width: 100%;
 
-      max-width: 360px;
+      max-width: 390px;
 
-      padding: 30px 22px;
+      padding: 38px 25px 25px;
 
-      text-align: center;
+      border: 1px solid #ffffff25;
 
-      background: rgba(255,255,255,.08);
+      border-radius: 25px;
 
-      border: 1px solid rgba(255,255,255,.15);
+      background: rgba(20,29,47,.9);
 
-      border-radius: 22px;
+      box-shadow: 0 20px 70px #0008;
 
-      box-shadow: 0 15px 45px #0008;
+      backdrop-filter: blur(15px);
 
-      backdrop-filter: blur(12px);
+      animation: loc-appear .8s ease both;
 
     }
 
-    .intro-avatar {
+    .loc-avatar-wrap {
 
       width: 125px;
 
       height: 125px;
 
+      margin: 0 auto 22px;
+
+      padding: 4px;
+
+      border-radius: 50%;
+
+      background: linear-gradient(135deg,#60a5fa,#a78bfa);
+
+      box-shadow: 0 0 30px #3b82f655;
+
+    }
+
+    .loc-avatar {
+
+      width: 100%;
+
+      height: 100%;
+
       object-fit: cover;
 
       border-radius: 50%;
 
-      border: 3px solid #60a5fa;
-
-      box-shadow: 0 0 25px #3b82f677;
+      display: block;
 
     }
 
-    .intro-card h2 {
+    .loc-label {
 
-      margin: 18px 0 8px;
+      color: #8dbbff;
 
-      font-size: 23px;
+      font-size: 10px;
+
+      letter-spacing: 3px;
+
+      margin-bottom: 13px;
 
     }
 
-    .intro-card p {
+    .loc-intro-card h1 {
 
-      color: #cbd5e1;
+      font-size: 25px;
 
-      font-style: italic;
+      margin: 0 0 10px;
+
+    }
+
+    .loc-description {
+
+      color: #aebbd0;
+
+      font-size: 13px;
+
+    }
+
+    .loc-line {
+
+      width: 55px;
+
+      height: 2px;
+
+      background: #6da8ff;
+
+      margin: 23px auto;
+
+    }
+
+    .loc-quote {
+
+      color: #d5dbea;
 
       font-size: 14px;
 
+      font-style: italic;
+
+      margin-bottom: 28px;
+
     }
 
-    .intro-button {
+    #loc-enter {
 
       width: 100%;
 
-      margin-top: 20px;
+      min-height: 52px;
 
-      padding: 15px;
+      padding: 14px 18px;
 
       border: none;
 
-      border-radius: 12px;
+      border-radius: 13px;
+
+      background: linear-gradient(100deg,#2878ff,#7955ec);
 
       color: white;
 
-      font-size: 15px;
+      font-size: 13px;
 
       font-weight: bold;
 
-      background: linear-gradient(120deg,#2563eb,#06b6d4);
+      letter-spacing: 1px;
 
       cursor: pointer;
 
+      transition: .25s;
+
     }
 
-    .intro-button:active {
+    #loc-enter:active {
 
       transform: scale(.97);
 
     }
 
-    .intro-footer {
+    .loc-footer {
 
-      margin-top: 20px;
-
-      color: #94a3b8;
+      color: #74829a;
 
       font-size: 11px;
 
+      margin: 25px 0 0;
+
     }
 
-    /* WEBSITE CHÍNH */
+    @keyframes loc-appear {
 
-    #full-website {
+      from {
+
+        opacity: 0;
+
+        transform: translateY(25px) scale(.96);
+
+      }
+
+      to {
+
+        opacity: 1;
+
+        transform: translateY(0) scale(1);
+
+      }
+
+    }
+
+    /* ===== WEBSITE CHÍNH ===== */
+
+    #loc-main-website {
 
       display: none;
 
       min-height: 100vh;
+
+    }
+
+    #loc-main-website.loc-visible {
+
+      display: block;
 
     }
 
@@ -164,107 +266,99 @@
 
 <body>
 
-  <!-- MÀN HÌNH BAN ĐẦU -->
+  <!-- PHẦN 1: GIAO DIỆN MỞ ĐẦU -->
 
-  <section id="intro-page">
+  <section id="loc-intro">
 
-    <div class="intro-card">
+    <div class="loc-intro-card">
 
-      <img
+      <div class="loc-avatar-wrap">
 
-        class="intro-avatar"
+        <img
 
-        src="https://cdn.upanhlaylink.com/i/7KlbleXR.png"
+          src="https://cdn.upanhlaylink.com/i/7KlbleXR.png"
 
-        alt="Nguyen Le Thanh Loc"
+          alt="Nguyen Le Thanh Loc"
 
-      >
+          class="loc-avatar"
 
-      <h2>Nguyen Le Thanh Loc</h2>
+        >
 
-      <p>“What the hell is love?”</p>
+      </div>
 
-      <button
+      <div class="loc-label">WELCOME TO MY WEBSITE</div>
 
-        class="intro-button"
+      <h1>Nguyen Le Thanh Loc</h1>
 
-        type="button"
+      <p class="loc-description">
 
-        onclick="openFullWebsite()">
+        Personal Website · TP. Huế
 
-        Truy cập Website ↗
+      </p>
+
+      <div class="loc-line"></div>
+
+      <p class="loc-quote">
+
+        “What the hell is love?”
+
+      </p>
+
+      <button id="loc-enter" type="button">
+
+        TRUY CẬP WEBSITE ↗
 
       </button>
 
-      <div class="intro-footer">
+      <p class="loc-footer">
 
         © Nguyen Le Thanh Loc
 
-      </div>
+      </p>
 
     </div>
 
   </section>
 
-  <!-- TOÀN BỘ WEBSITE HIỆN TẠI -->
+  <!-- PHẦN 2: WEBSITE CHÍNH -->
 
-  <main id="full-website">
+  <main id="loc-main-website">
 
-    <!-- DÁN TOÀN BỘ PHẦN BODY WEBSITE CŨ VÀO ĐÂY -->
-
-    <!-- Ví dụ:
-
-      Header
-
-      Music
-
-      Skills
-
-      Nội dung cá nhân
-
-      Dark Mode
-
-      Hiệu ứng
-
-      Footer
-
-    -->
+    <!-- DÁN TOÀN BỘ CODE WEBSITE CŨ CỦA BẠN VÀO ĐÂY -->
 
   </main>
 
+  <!-- PHẦN 3: CHỨC NĂNG VÀO WEBSITE -->
+
   <script>
 
-    function openFullWebsite() {
+    (function () {
 
-      const intro = document.getElementById("intro-page");
+      const intro = document.getElementById("loc-intro");
 
-      const website = document.getElementById("full-website");
+      const mainWebsite = document.getElementById("loc-main-website");
 
-      intro.style.display = "none";
+      const enterButton = document.getElementById("loc-enter");
 
-      website.style.display = "block";
+      enterButton.addEventListener("click", function () {
 
-      window.scrollTo({
+        enterButton.disabled = true;
 
-        top: 0,
+        enterButton.textContent = "ĐANG MỞ WEBSITE...";
 
-        behavior: "instant"
+        mainWebsite.classList.add("loc-visible");
+
+        intro.classList.add("loc-hidden");
+
+        setTimeout(function () {
+
+          intro.style.display = "none";
+
+        }, 500);
 
       });
 
-      // Ghi nhớ màn hình website trong phiên hiện tại
-
-      try {
-
-        sessionStorage.setItem("locWebsiteOpened", "true");
-
-      } catch (e) {}
-
-    }
-
-    // Khi tải lại trang, mặc định trở về màn hình giới thiệu
-
-    // Không tự động mở website ở lần truy cập mới
+    })();
 
   </script>
 
