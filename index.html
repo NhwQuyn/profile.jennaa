@@ -411,7 +411,20 @@
                         </svg>
                     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
                     <script>
-						
+                      new Vue({
+						 new Vue({
+  el: "#app",
+  data() {
+    return {
+      // Giữ nguyên dữ liệu cũ
+    };
+  },
+  methods: {
+    // Đặt play() mới ở đây
+  }
+});
+
+// Đặt đoạn bảo vệ nhạc ở đây
 document.addEventListener("play", function(event) {
   const backgroundMusic =
     document.getElementById("backgroundMusic");
@@ -427,8 +440,6 @@ document.addEventListener("play", function(event) {
     }
   }
 }, true);
-
-                      new Vue({
                         el: "#app",
                         data() {
                           return {
