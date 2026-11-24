@@ -28,6 +28,29 @@
   //]]>
   </script>
 <body>
+	
+<audio id="background-music" loop preload="auto">
+  <source src="https://files.catbox.moe/67sb4b.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("background-music");
+
+// Thử tự động phát
+window.addEventListener("load", function () {
+  music.play().catch(function () {
+    // iPhone có thể yêu cầu người dùng chạm màn hình
+  });
+});
+
+// Phát nhạc sau lần chạm đầu tiên
+document.addEventListener("click", function () {
+  if (music.paused) {
+    music.play().catch(() => {});
+  }
+}, { once: true });
+</script>
+
     <!--=============== HEADER ===============-->
     <header class="profile container">
         <!-- Theme button -->
