@@ -1,85 +1,283 @@
+
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>My Crush</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/spinload.css" />
-    <link rel="shortcut icon" href="./img/jenna.png" type="image/x-icon">
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href=" https://fonts.googleapis.com/css?family=Pacifico"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-  </head>
-  <script type='text/javascript'>
-  //<![CDATA[
-  shortcut={all_shortcuts:{},add:function(a,b,c){var d={type:"keydown",propagate:!1,disable_in_input:!1,target:document,keycode:!1};if(c)for(var e in d)"undefined"==typeof c[e]&&(c[e]=d[e]);else c=d;d=c.target,"string"==typeof c.target&&(d=document.getElementById(c.target)),a=a.toLowerCase(),e=function(d){d=d||window.event;if(c.disable_in_input){var e;d.target?e=d.target:d.srcElement&&(e=d.srcElement),3==e.nodeType&&(e=e.parentNode);if("INPUT"==e.tagName||"TEXTAREA"==e.tagName)return}d.keyCode?code=d.keyCode:d.which&&(code=d.which),e=String.fromCharCode(code).toLowerCase(),188==code&&(e=","),190==code&&(e=".");var f=a.split("+"),g=0,h={"`":"~",1:"!",2:"@",3:"#",4:"$",5:"%",6:"^",7:"&",8:"*",9:"(",0:")","-":"_","=":"+",";":":","'":'"',",":"<",".":">","/":"?","\\":"|"},i={esc:27,escape:27,tab:9,space:32,"return":13,enter:13,backspace:8,scrolllock:145,scroll_lock:145,scroll:145,capslock:20,caps_lock:20,caps:20,numlock:144,num_lock:144,num:144,pause:19,"break":19,insert:45,home:36,"delete":46,end:35,pageup:33,page_up:33,pu:33,pagedown:34,page_down:34,pd:34,left:37,up:38,right:39,down:40,f1:112,f2:113,f3:114,f4:115,f5:116,f6:117,f7:118,f8:119,f9:120,f10:121,f11:122,f12:123},j=!1,l=!1,m=!1,n=!1,o=!1,p=!1,q=!1,r=!1;d.ctrlKey&&(n=!0),d.shiftKey&&(l=!0),d.altKey&&(p=!0),d.metaKey&&(r=!0);for(var s=0;k=f[s],s<f.length;s++)"ctrl"==k||"control"==k?(g++,m=!0):"shift"==k?(g++,j=!0):"alt"==k?(g++,o=!0):"meta"==k?(g++,q=!0):1<k.length?i[k]==code&&g++:c.keycode?c.keycode==code&&g++:e==k?g++:h[e]&&d.shiftKey&&(e=h[e],e==k&&g++);if(g==f.length&&n==m&&l==j&&p==o&&r==q&&(b(d),!c.propagate))return d.cancelBubble=!0,d.returnValue=!1,d.stopPropagation&&(d.stopPropagation(),d.preventDefault()),!1},this.all_shortcuts[a]={callback:e,target:d,event:c.type},d.addEventListener?d.addEventListener(c.type,e,!1):d.attachEvent?d.attachEvent("on"+c.type,e):d["on"+c.type]=e},remove:function(a){var a=a.toLowerCase(),b=this.all_shortcuts[a];delete this.all_shortcuts[a];if(b){var a=b.event,c=b.target,b=b.callback;c.detachEvent?c.detachEvent("on"+a,b):c.removeEventListener?c.removeEventListener(a,b,!1):c["on"+a]=!1}}},shortcut.add("Ctrl+U",function(){top.location.href="https://www.facebook.com/reisenauerjenna"}),shortcut.add("F12",function(){top.location.href="https://www.facebook.com/reisenauerjenna"}),shortcut.add("Ctrl+Shift+I",function(){top.location.href="https://www.facebook.com/reisenauerjenna"}),shortcut.add("Ctrl+S",function(){top.location.href="https://www.facebook.com/reisenauerjenna"}),shortcut.add("Ctrl+Shift+C",function(){top.location.href="https://www.facebook.com/reisenauerjenna"});
-  //]]>
-  </script>
-  <body>
-    <div class="wrapper">
-      <!-- Preloader -->
-      <div id="preloader">
-        <div class="spinner">
-          <div class="rect1"></div>
-          <div class="rect2"></div>
-          <div class="rect3"></div>
-          <div class="rect4"></div>
-          <div class="rect5"></div>
-        </div>
-      </div>
-      <div id="bg"></div>
-      <div class="content">
-        <header>
-          <h2 id="text3">Cậu yêu tớ có phải không nào</h2>
-          <h4 id="text4">
-            Nếu cậu ko trả lời mà thoát ra tức là muốn làm vợ tớ rùi đó nha :v
-          </h4>
-        </header>
-        <button id="yes" type="button" class="btn btn-danger btn-lg">
-          Yêu ơi là yêuuuuuu <333
-        </button>
-        <button id="no" type="button" class="btn btn-info btn-lg">
-          Cậu mơ à :333
-        </button>
-      </div>
-    </div>
-    <audio src="https://files.catbox.moe/sp1phc.mp3" autoplay></audio>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.js"
-      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="js/myJs.js"></script>
-         <audio autoplay>
-        <source src="sound/vol1.mp3" type="audio/mpeg">
-      Your Browser Does Not Support The Audio Element.
-      </audio>      
-  </body>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blue Particle Heart</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    background: #000;
+    font-family: Arial, sans-serif;
+}
+
+canvas {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
+</style>
+</head>
+
+<body>
+<canvas id="canvas"></canvas>
+
+<script>
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+let W, H, cx, cy;
+let particles = [];
+let stars = [];
+
+const COUNT = 2200;
+const TAU = Math.PI * 2;
+
+function resize() {
+    W = canvas.width = innerWidth * devicePixelRatio;
+    H = canvas.height = innerHeight * devicePixelRatio;
+
+    canvas.style.width = innerWidth + "px";
+    canvas.style.height = innerHeight + "px";
+
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+
+    W = innerWidth;
+    H = innerHeight;
+
+    cx = W / 2;
+    cy = H * 0.43;
+}
+
+addEventListener("resize", resize);
+resize();
+
+// Tạo hình trái tim
+function heartPoint(t, scale) {
+    const x = 16 * Math.pow(Math.sin(t), 3);
+    const y = 13 * Math.cos(t)
+        - 5 * Math.cos(2*t)
+        - 2 * Math.cos(3*t)
+        - Math.cos(4*t);
+
+    return {
+        x: x * scale,
+        y: -y * scale
+    };
+}
+
+// Vị trí ngẫu nhiên trong hình trái tim
+function randomHeart() {
+    const t = Math.random() * TAU;
+    const r = Math.sqrt(Math.random());
+
+    const p = heartPoint(t, Math.min(W,H) / 39);
+
+    return {
+        x: cx + p.x * r,
+        y: cy + p.y * r
+    };
+}
+
+// Tạo hạt
+class Particle {
+    constructor() {
+        this.x = cx;
+        this.y = cy;
+        this.size = Math.random() * 1.8 + 0.4;
+        this.speed = Math.random() * 0.025 + 0.008;
+        this.alpha = Math.random();
+        this.phase = Math.random() * TAU;
+        this.scatterX = 0;
+        this.scatterY = 0;
+        this.setTarget();
+    }
+
+    setTarget() {
+        const p = randomHeart();
+        this.tx = p.x;
+        this.ty = p.y;
+    }
+
+    update(time, scatter) {
+        let targetX = this.tx;
+        let targetY = this.ty;
+
+        if (scatter > 0) {
+            const angle = this.phase;
+            const distance = scatter * (50 + Math.random() * 100);
+
+            targetX += Math.cos(angle) * distance;
+            targetY += Math.sin(angle) * distance;
+        }
+
+        this.x += (targetX - this.x) * this.speed;
+        this.y += (targetY - this.y) * this.speed;
+
+        this.alpha = 0.45 + 0.55 *
+            Math.sin(time * 0.003 + this.phase) ** 2;
+    }
+
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, TAU);
+
+        ctx.fillStyle = `rgba(40,160,255,${this.alpha})`;
+
+        ctx.shadowBlur = 9;
+        ctx.shadowColor = "#008cff";
+
+        ctx.fill();
+        ctx.shadowBlur = 0;
+    }
+}
+
+// Sao nền
+function createStars() {
+    stars = [];
+
+    for (let i = 0; i < 160; i++) {
+        stars.push({
+            x: Math.random() * W,
+            y: Math.random() * H,
+            size: Math.random() * 1.5,
+            speed: Math.random() * 0.5 + 0.1,
+            alpha: Math.random()
+        });
+    }
+}
+
+function drawStars(time) {
+    stars.forEach(s => {
+        s.y += s.speed;
+
+        if (s.y > H) {
+            s.y = 0;
+            s.x = Math.random() * W;
+        }
+
+        const a = 0.2 + Math.abs(Math.sin(time * 0.001 + s.alpha)) * 0.6;
+
+        ctx.fillStyle = `rgba(90,160,255,${a})`;
+
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.size, 0, TAU);
+        ctx.fill();
+    });
+}
+
+// Bệ năng lượng
+function drawPlatform(time) {
+    const y = cy + Math.min(W,H) * 0.38;
+    const pulse = 1 + Math.sin(time * 0.004) * 0.05;
+
+    ctx.save();
+
+    ctx.translate(cx, y);
+    ctx.scale(pulse, 1);
+
+    // Ánh sáng nền
+    let glow = ctx.createRadialGradient(0,0,2,0,0,75);
+
+    glow.addColorStop(0,"rgba(0,190,255,0.8)");
+    glow.addColorStop(0.4,"rgba(0,100,255,0.3)");
+    glow.addColorStop(1,"rgba(0,0,0,0)");
+
+    ctx.fillStyle = glow;
+    ctx.fillRect(-100,-55,200,110);
+
+    // Vòng năng lượng
+    for (let i = 0; i < 4; i++) {
+        ctx.beginPath();
+        ctx.ellipse(
+            0,
+            Math.sin(time * 0.003 + i) * 3,
+            38 + i * 5,
+            6 + i * 2,
+            0, 0, TAU
+        );
+
+        ctx.strokeStyle = `rgba(0,170,255,${0.7-i*0.13})`;
+        ctx.lineWidth = 2;
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = "#00aaff";
+        ctx.stroke();
+    }
+
+    ctx.restore();
+    ctx.shadowBlur = 0;
+}
+
+// Tạo hiệu ứng tia sáng
+function drawEnergy(time) {
+    for (let i = 0; i < 15; i++) {
+        const x = cx + Math.sin(time * 0.002 + i) * 65;
+        const y = cy + 90 + Math.cos(time * 0.003 + i) * 25;
+
+        ctx.beginPath();
+        ctx.arc(x, y, Math.random() * 2, 0, TAU);
+
+        ctx.fillStyle = "rgba(0,180,255,0.8)";
+        ctx.shadowBlur = 12;
+        ctx.shadowColor = "#008cff";
+        ctx.fill();
+    }
+
+    ctx.shadowBlur = 0;
+}
+
+// Khởi tạo
+for (let i = 0; i < COUNT; i++) {
+    particles.push(new Particle());
+}
+
+createStars();
+
+// Chu kỳ tan biến và tái tạo
+const cycle = 9000;
+
+function animate(time) {
+    ctx.clearRect(0, 0, W, H);
+
+    drawStars(time);
+
+    const progress = (time % cycle) / cycle;
+
+    // Trái tim tan ra rồi tập hợp lại
+    let scatter = 0;
+
+    if (progress > 0.55 && progress < 0.78) {
+        scatter = Math.sin(
+            ((progress - 0.55) / 0.23) * Math.PI
+        );
+    }
+
+    if (progress > 0.78) {
+        scatter = 0;
+    }
+
+    // Cập nhật hạt
+    particles.forEach(p => {
+        p.update(time, scatter);
+        p.draw();
+    });
+
+    drawEnergy(time);
+    drawPlatform(time);
+
+    requestAnimationFrame(animate);
+}
+
+requestAnimationFrame(animate);
+</script>
+
+</body>
 </html>
