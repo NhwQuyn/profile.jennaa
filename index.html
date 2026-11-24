@@ -325,46 +325,6 @@
   <main id="loc-main-website">
 
     <!-- DÁN TOÀN BỘ CODE WEBSITE CŨ CỦA BẠN VÀO ĐÂY -->
-
-  </main>
-
-  <!-- PHẦN 3: CHỨC NĂNG VÀO WEBSITE -->
-
-  <script>
-
-    (function () {
-
-      const intro = document.getElementById("loc-intro");
-
-      const mainWebsite = document.getElementById("loc-main-website");
-
-      const enterButton = document.getElementById("loc-enter");
-
-      enterButton.addEventListener("click", function () {
-
-        enterButton.disabled = true;
-
-        enterButton.textContent = "ĐANG MỞ WEBSITE...";
-
-        mainWebsite.classList.add("loc-visible");
-
-        intro.classList.add("loc-hidden");
-
-        setTimeout(function () {
-
-          intro.style.display = "none";
-
-        }, 500);
-
-      });
-
-    })();
-
-  </script>
-
-</body>
-
-</html>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -1570,4 +1530,43 @@ user-select: none!important;
 
 </script>
 </body>
+</html>
+	  </main>
+
+  <!-- PHẦN 3: CHỨC NĂNG VÀO WEBSITE -->
+
+  <script>
+
+    (function () {
+
+      const intro = document.getElementById("loc-intro");
+
+      const mainWebsite = document.getElementById("loc-main-website");
+
+      const enterButton = document.getElementById("loc-enter");
+
+      enterButton.addEventListener("click", function () {
+
+        enterButton.disabled = true;
+
+        enterButton.textContent = "ĐANG MỞ WEBSITE...";
+
+        mainWebsite.classList.add("loc-visible");
+
+        intro.classList.add("loc-hidden");
+
+        setTimeout(function () {
+
+          intro.style.display = "none";
+
+        }, 500);
+
+      });
+
+    })();
+
+  </script>
+
+</body>
+
 </html>
