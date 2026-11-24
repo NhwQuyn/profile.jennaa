@@ -431,9 +431,33 @@
     user-select: none!important;
     }
     </style>
-    <audio autoplay>
-        <source src="https://files.catbox.moe/e0fjzs.mp3" type="audio/mpeg">
-      Your Browser Does Not Support The Audio Element.
-      </audio>   
+    
+<audio id="background-music" loop preload="auto">
+  <source src="https://files.catbox.moe/67sb4b.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const music = document.getElementById("background-music");
+
+    music.volume = 0.5;
+
+    // Thử tự động phát khi vào website
+    music.play().catch(() => {
+        console.log("Trình duyệt yêu cầu người dùng tương tác để phát nhạc.");
+    });
+
+    // Nếu bị chặn, phát nhạc sau lần chạm đầu tiên
+    function startMusic() {
+        music.play().catch(() => {});
+        document.removeEventListener("click", startMusic);
+        document.removeEventListener("touchstart", startMusic);
+    }
+
+    document.addEventListener("click", startMusic);
+    document.addEventListener("touchstart", startMusic);
+});
+</script>
+  
 </body>
                                  </html>
