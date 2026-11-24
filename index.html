@@ -1,177 +1,202 @@
+
+
 <!DOCTYPE html>
 
+<html lang="vi">
 
-<!-- ==========================================
+<head>
 
- NGUYEN LE THANH LOC - EXPANDABLE PROFILE CARD
+  <meta charset="UTF-8">
 
-========================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div id="loc-profile-widget">
+  <title>Nguyen Le Thanh Loc</title>
 
-  <!-- LINK MỞ THẺ -->
+  <style>
 
-  <button
+    * {
 
-    type="button"
+      box-sizing: border-box;
 
-    class="loc-trigger"
+    }
 
-    id="locTrigger"
+    body {
 
-    aria-expanded="false"
+      margin: 0;
 
-    aria-controls="locPanel"
+      font-family: Arial, sans-serif;
 
-  >
+    }
 
-    <span class="loc-trigger-left">
+    /* MÀN HÌNH GIỚI THIỆU */
 
-      <span class="loc-globe">🌐</span>
+    #intro-page {
 
-      <span>Nguyen Le Thanh Loc</span>
+      min-height: 100vh;
 
-    </span>
+      display: flex;
 
-    <span class="loc-chevron" id="locChevron">⌄</span>
+      justify-content: center;
 
-  </button>
+      align-items: center;
 
-  <!-- THẺ GIỚI THIỆU -->
+      padding: 20px;
 
-  <div
+      background:
 
-    class="loc-panel"
+        radial-gradient(circle at top, #243b68, transparent 55%),
 
-    id="locPanel"
+        #080d19;
 
-    aria-hidden="true"
+      color: white;
 
-    inert
+    }
 
-  >
+    .intro-card {
 
-    <div class="loc-card">
+      width: 100%;
 
-      <!-- ẢNH ĐẠI DIỆN -->
+      max-width: 360px;
 
-      <div class="loc-avatar">
+      padding: 30px 22px;
 
-        <img
+      text-align: center;
 
-          src="https://cdn.upanhlaylink.com/i/7KlbleXR.png"
+      background: rgba(255,255,255,.08);
 
-          alt="Nguyen Le Thanh Loc"
+      border: 1px solid rgba(255,255,255,.15);
 
-          loading="lazy"
+      border-radius: 22px;
 
-        >
+      box-shadow: 0 15px 45px #0008;
 
-      </div>
+      backdrop-filter: blur(12px);
 
-      <!-- TÊN -->
+    }
 
-      <h2 class="loc-name">
+    .intro-avatar {
 
-        Nguyen Le Thanh Loc
+      width: 125px;
 
-        <span class="loc-verified">✓</span>
+      height: 125px;
 
-      </h2>
+      object-fit: cover;
 
-      <!-- GIỚI THIỆU -->
+      border-radius: 50%;
 
-      <p class="loc-quote">
+      border: 3px solid #60a5fa;
 
-        "What the hell is love?"
+      box-shadow: 0 0 25px #3b82f677;
 
-      </p>
+    }
 
-      <p class="loc-description">
+    .intro-card h2 {
 
-        Personal Website · TP. Huế
+      margin: 18px 0 8px;
 
-      </p>
+      font-size: 23px;
 
-      <!-- THÔNG TIN -->
+    }
 
-      <div class="loc-stats">
+    .intro-card p {
 
-        <div class="loc-stat">
+      color: #cbd5e1;
 
-          <strong>+999</strong>
+      font-style: italic;
 
-          <span>Achievement</span>
+      font-size: 14px;
 
-        </div>
+    }
 
-        <div class="loc-stat">
+    .intro-button {
 
-          <strong>2005</strong>
+      width: 100%;
 
-          <span>Year of Birth</span>
+      margin-top: 20px;
 
-        </div>
+      padding: 15px;
 
-        <div class="loc-stat">
+      border: none;
 
-          <strong>TP. Huế</strong>
+      border-radius: 12px;
 
-          <span>Location</span>
+      color: white;
 
-        </div>
+      font-size: 15px;
 
-      </div>
+      font-weight: bold;
 
-      <!-- NÚT TRUY CẬP -->
+      background: linear-gradient(120deg,#2563eb,#06b6d4);
 
-      <a
+      cursor: pointer;
 
-        class="loc-visit"
+    }
 
-        href="https://nhwquyn.github.io/user.nguyenlethanhloc/"
+    .intro-button:active {
 
-        target="_blank"
+      transform: scale(.97);
 
-        rel="noopener noreferrer"
+    }
+
+    .intro-footer {
+
+      margin-top: 20px;
+
+      color: #94a3b8;
+
+      font-size: 11px;
+
+    }
+
+    /* WEBSITE CHÍNH */
+
+    #full-website {
+
+      display: none;
+
+      min-height: 100vh;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- MÀN HÌNH BAN ĐẦU -->
+
+  <section id="intro-page">
+
+    <div class="intro-card">
+
+      <img
+
+        class="intro-avatar"
+
+        src="https://cdn.upanhlaylink.com/i/7KlbleXR.png"
+
+        alt="Nguyen Le Thanh Loc"
 
       >
 
-        <span>Truy cập Website</span>
+      <h2>Nguyen Le Thanh Loc</h2>
 
-        <span class="loc-visit-arrow">↗</span>
+      <p>“What the hell is love?”</p>
 
-      </a>
+      <button
 
-      <!-- LINK WEBSITE -->
+        class="intro-button"
 
-      <div class="loc-link-area">
+        type="button"
 
-        <span class="loc-url">
+        onclick="openFullWebsite()">
 
-          nhwquyn.github.io/user.nguyenlethanhloc/
+        Truy cập Website ↗
 
-        </span>
+      </button>
 
-        <button
-
-          type="button"
-
-          class="loc-copy"
-
-          id="locCopy"
-
-        >
-
-          Sao chép
-
-        </button>
-
-      </div>
-
-      <!-- FOOTER -->
-
-      <div class="loc-footer">
+      <div class="intro-footer">
 
         © Nguyen Le Thanh Loc
 
@@ -179,593 +204,74 @@
 
     </div>
 
-  </div>
+  </section>
 
-</div>
+  <!-- TOÀN BỘ WEBSITE HIỆN TẠI -->
 
-<style>
+  <main id="full-website">
 
-/* =================================
+    <!-- DÁN TOÀN BỘ PHẦN BODY WEBSITE CŨ VÀO ĐÂY -->
 
-   PROFILE WIDGET
+    <!-- Ví dụ:
 
-================================= */
+      Header
 
-#loc-profile-widget {
+      Music
 
-  width: 100%;
+      Skills
 
-  max-width: 440px;
+      Nội dung cá nhân
 
-  margin: 25px auto;
+      Dark Mode
 
-  padding: 0 12px;
+      Hiệu ứng
 
-  box-sizing: border-box;
+      Footer
 
-  font-family: Arial, sans-serif;
+    -->
 
-}
+  </main>
 
-/* LINK MỞ THẺ */
+  <script>
 
-#loc-profile-widget .loc-trigger {
+    function openFullWebsite() {
 
-  width: 100%;
+      const intro = document.getElementById("intro-page");
 
-  display: flex;
+      const website = document.getElementById("full-website");
 
-  justify-content: space-between;
+      intro.style.display = "none";
 
-  align-items: center;
+      website.style.display = "block";
 
-  padding: 16px 18px;
+      window.scrollTo({
 
-  border: none;
+        top: 0,
 
-  border-radius: 14px;
+        behavior: "instant"
 
-  background: #399fe8;
+      });
 
-  color: #fff;
+      // Ghi nhớ màn hình website trong phiên hiện tại
 
-  font-size: 15px;
+      try {
 
-  font-weight: 700;
+        sessionStorage.setItem("locWebsiteOpened", "true");
 
-  cursor: pointer;
-
-  transition: background .25s ease;
-
-}
-
-#loc-profile-widget .loc-trigger:hover {
-
-  background: #2085d0;
-
-}
-
-#loc-profile-widget .loc-trigger-left {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 11px;
-
-}
-
-#loc-profile-widget .loc-globe {
-
-  font-size: 19px;
-
-}
-
-#loc-profile-widget .loc-chevron {
-
-  font-size: 22px;
-
-  transition: transform .35s ease;
-
-}
-
-#loc-profile-widget .loc-trigger.active .loc-chevron {
-
-  transform: rotate(180deg);
-
-}
-
-/* =================================
-
-   EXPAND / COLLAPSE
-
-================================= */
-
-#loc-profile-widget .loc-panel {
-
-  display: grid;
-
-  grid-template-rows: 0fr;
-
-  opacity: 0;
-
-  margin-top: 0;
-
-  transition:
-
-    grid-template-rows .4s ease,
-
-    opacity .3s ease,
-
-    margin-top .3s ease;
-
-}
-
-#loc-profile-widget .loc-panel.show {
-
-  grid-template-rows: 1fr;
-
-  opacity: 1;
-
-  margin-top: 14px;
-
-}
-
-#loc-profile-widget .loc-panel > .loc-card {
-
-  min-height: 0;
-
-  overflow: hidden;
-
-}
-
-/* =================================
-
-   PROFILE CARD
-
-================================= */
-
-#loc-profile-widget .loc-card {
-
-  width: 100%;
-
-  padding: 28px 20px;
-
-  box-sizing: border-box;
-
-  text-align: center;
-
-  background: #fff;
-
-  color: #252a32;
-
-  border: 1px solid #eeeeee;
-
-  border-radius: 23px;
-
-  box-shadow: 0 8px 30px rgba(0,0,0,.08);
-
-}
-
-/* AVATAR */
-
-#loc-profile-widget .loc-avatar {
-
-  width: 120px;
-
-  height: 120px;
-
-  margin: auto;
-
-  padding: 4px;
-
-  border: 4px solid #399fe8;
-
-  border-radius: 50%;
-
-  overflow: hidden;
-
-  box-sizing: border-box;
-
-}
-
-#loc-profile-widget .loc-avatar img {
-
-  display: block;
-
-  width: 100%;
-
-  height: 100%;
-
-  object-fit: cover;
-
-  border-radius: 50%;
-
-}
-
-/* NAME */
-
-#loc-profile-widget .loc-name {
-
-  margin: 19px 0 8px;
-
-  font-size: 22px;
-
-  line-height: 1.4;
-
-  font-weight: 700;
-
-}
-
-#loc-profile-widget .loc-verified {
-
-  display: inline-flex;
-
-  width: 19px;
-
-  height: 19px;
-
-  justify-content: center;
-
-  align-items: center;
-
-  background: #319be8;
-
-  color: #fff;
-
-  border-radius: 50%;
-
-  font-size: 12px;
-
-}
-
-/* INTRODUCTION */
-
-#loc-profile-widget .loc-quote {
-
-  margin: 8px 0;
-
-  color: #77818d;
-
-  font-size: 15px;
-
-  font-weight: 600;
-
-}
-
-#loc-profile-widget .loc-description {
-
-  color: #89919c;
-
-  font-size: 13px;
-
-}
-
-/* STATS */
-
-#loc-profile-widget .loc-stats {
-
-  display: grid;
-
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 8px;
-
-  margin: 28px 0;
-
-}
-
-#loc-profile-widget .loc-stat {
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 7px;
-
-}
-
-#loc-profile-widget .loc-stat strong {
-
-  font-size: 17px;
-
-}
-
-#loc-profile-widget .loc-stat span {
-
-  color: #89919c;
-
-  font-size: 11px;
-
-}
-
-/* VISIT BUTTON */
-
-#loc-profile-widget .loc-visit {
-
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-
-  padding: 16px 20px;
-
-  color: #fff;
-
-  background: #399fe8;
-
-  border-radius: 12px;
-
-  text-decoration: none;
-
-  font-size: 15px;
-
-  font-weight: 700;
-
-  transition: .3s ease;
-
-}
-
-#loc-profile-widget .loc-visit:hover {
-
-  background: #2085d0;
-
-  transform: translateY(-2px);
-
-}
-
-#loc-profile-widget .loc-visit-arrow {
-
-  font-size: 21px;
-
-}
-
-/* LINK */
-
-#loc-profile-widget .loc-link-area {
-
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-
-  gap: 8px;
-
-  margin-top: 17px;
-
-}
-
-#loc-profile-widget .loc-url {
-
-  flex: 1;
-
-  min-width: 0;
-
-  color: #89919c;
-
-  font-size: 10px;
-
-  text-align: left;
-
-  overflow-wrap: anywhere;
-
-}
-
-/* COPY */
-
-#loc-profile-widget .loc-copy {
-
-  flex-shrink: 0;
-
-  padding: 9px 11px;
-
-  border: none;
-
-  border-radius: 8px;
-
-  background: #edf5fc;
-
-  color: #258bd5;
-
-  font-size: 11px;
-
-  font-weight: 600;
-
-  cursor: pointer;
-
-}
-
-/* FOOTER */
-
-#loc-profile-widget .loc-footer {
-
-  margin-top: 22px;
-
-  padding-top: 14px;
-
-  border-top: 1px solid #eee;
-
-  color: #a0a8b1;
-
-  font-size: 11px;
-
-}
-
-/* =================================
-
-   MOBILE
-
-================================= */
-
-@media (max-width: 480px) {
-
-  #loc-profile-widget {
-
-    padding: 0 10px;
-
-  }
-
-  #loc-profile-widget .loc-card {
-
-    padding: 25px 16px;
-
-  }
-
-  #loc-profile-widget .loc-name {
-
-    font-size: 20px;
-
-  }
-
-}
-
-/* =================================
-
-   DARK MODE
-
-================================= */
-
-@media (prefers-color-scheme: dark) {
-
-  #loc-profile-widget .loc-card {
-
-    background: #20242b;
-
-    color: #fff;
-
-    border-color: #343a43;
-
-  }
-
-  #loc-profile-widget .loc-stat strong {
-
-    color: #fff;
-
-  }
-
-  #loc-profile-widget .loc-footer {
-
-    border-color: #383e48;
-
-  }
-
-  #loc-profile-widget .loc-copy {
-
-    background: #303d4b;
-
-    color: #75bfff;
-
-  }
-
-}
-
-</style>
-
-<script>
-
-/* =================================
-
-   PROFILE OPEN / CLOSE
-
-================================= */
-
-(function () {
-
-  const widget = document.getElementById(
-
-    "loc-profile-widget"
-
-  );
-
-  if (!widget) return;
-
-  const trigger = widget.querySelector(".loc-trigger");
-
-  const panel = widget.querySelector(".loc-panel");
-
-  const copyButton = widget.querySelector(".loc-copy");
-
-  trigger.addEventListener("click", function () {
-
-    const isOpen = panel.classList.toggle("show");
-
-    trigger.classList.toggle("active", isOpen);
-
-    trigger.setAttribute(
-
-      "aria-expanded",
-
-      String(isOpen)
-
-    );
-
-    panel.setAttribute(
-
-      "aria-hidden",
-
-      String(!isOpen)
-
-    );
-
-    panel.inert = !isOpen;
-
-  });
-
-  /* COPY WEBSITE */
-
-  copyButton.addEventListener("click", async function () {
-
-    const url =
-
-      "https://nhwquyn.github.io/user.nguyenlethanhloc/";
-
-    try {
-
-      if (navigator.clipboard && window.isSecureContext) {
-
-        await navigator.clipboard.writeText(url);
-
-      } else {
-
-        const input = document.createElement("textarea");
-
-        input.value = url;
-
-        document.body.appendChild(input);
-
-        input.select();
-
-        const copied = document.execCommand("copy");
-
-        input.remove();
-
-        if (!copied) throw new Error("Copy failed");
-
-      }
-
-      copyButton.textContent = "Đã sao chép ✓";
-
-    } catch (error) {
-
-      copyButton.textContent = "Không thành công";
+      } catch (e) {}
 
     }
 
-    setTimeout(function () {
+    // Khi tải lại trang, mặc định trở về màn hình giới thiệu
 
-      copyButton.textContent = "Sao chép";
+    // Không tự động mở website ở lần truy cập mới
 
-    }, 2000);
+  </script>
 
-  });
+</body>
 
-})();
-
-</script>
-
-<!-- END PROFILE WIDGET -->
+</html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
