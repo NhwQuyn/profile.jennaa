@@ -598,263 +598,609 @@ user-select: none!important;
 ================================= -->
 
 
+
+<!-- =====================================
+
+     NHẠC NỀN
+
+===================================== -->
+
 <audio id="background-music" loop preload="auto">
+
   <source src="https://files.catbox.moe/mowxk1.mp3" type="audio/mpeg">
+
 </audio>
 
-<!-- HỘP THOẠI -->
+<!-- =====================================
+
+     HỘP THOẠI
+
+===================================== -->
+
 <div id="music-popup">
+
   <div class="music-box">
+
     <h3>🎵 BẬT NHẠC NỀN</h3>
+
     <p>Bạn có muốn nghe nhạc không?</p>
 
     <button onclick="playMusic()">CÓ</button>
+
     <button onclick="stopMusic()">KHÔNG</button>
+
   </div>
+
 </div>
 
-<!-- NÚT MUSIC KÉO THẢ -->
+<!-- =====================================
+
+     NÚT MUSIC KÉO THẢ
+
+===================================== -->
+
 <div id="music-control">
+
   <span class="music-icon">♫</span>
+
   <span>MUSIC</span>
-  <span id="music-status">ON</span>
+
+  <span id="music-status">OFF</span>
+
 </div>
 
 <style>
+
 #music-popup {
+
   position: fixed;
+
   inset: 0;
-  background: rgba(0,0,0,0.65);
+
+  background: rgba(0,0,0,.65);
+
   display: flex;
+
   justify-content: center;
+
   align-items: center;
+
   z-index: 999999;
+
 }
 
 .music-box {
+
   background: white;
+
   padding: 25px;
+
   border-radius: 15px;
+
   text-align: center;
+
   width: 280px;
+
+  max-width: calc(100% - 40px);
+
   color: #222;
+
+  box-shadow: 0 10px 35px #0005;
+
 }
 
 .music-box h3 {
+
   margin-top: 0;
+
 }
 
 .music-box button {
+
   border: none;
+
   padding: 10px 25px;
+
   margin: 8px 5px;
+
   border-radius: 20px;
+
   cursor: pointer;
+
   background: #222;
+
   color: white;
+
   font-weight: bold;
+
 }
 
-/* NÚT MUSIC */
 #music-control {
+
   display: none;
+
   position: fixed;
+
   top: 15px;
+
   left: 15px;
+
   z-index: 999998;
 
   align-items: center;
+
   gap: 8px;
+
   padding: 10px 14px;
 
   border-radius: 30px;
+
   background: #222 !important;
+
   color: white !important;
+
   border: 1px solid #555;
 
   font-size: 12px;
+
   font-weight: bold;
+
   letter-spacing: 1px;
 
   cursor: grab;
+
   user-select: none;
+
   -webkit-user-select: none;
+
   touch-action: none;
 
   box-shadow: 0 4px 15px #0004;
+
 }
 
 #music-control:active {
+
   cursor: grabbing;
+
 }
 
 .music-icon {
+
   color: #5de0a0;
+
   font-size: 19px;
+
 }
 
 #music-control.playing .music-icon {
+
   animation: musicRotate 3s linear infinite;
+
 }
 
 #music-status {
+
   color: #5de0a0;
+
 }
 
 #music-control.off #music-status,
+
 #music-control.off .music-icon {
+
   color: #aaa;
+
 }
 
 @keyframes musicRotate {
+
   from { transform: rotate(0deg); }
+
   to { transform: rotate(360deg); }
+
 }
+
 </style>
 
 <script>
+
 (function () {
+
   const music = document.getElementById("background-music");
+
   const popup = document.getElementById("music-popup");
+
   const control = document.getElementById("music-control");
+
   const status = document.getElementById("music-status");
 
+  if (!music || !popup || !control || !status) return;
+
+  // TRẠNG THÁI
+
+  let backgroundEnabled = false;
+
+  let backgroundWasPlaying = false;
+
+  let suppressBackgroundResume = false;
+
   // CẬP NHẬT GIAO DIỆN
+
   function updateMusicUI() {
+
     const playing = !music.paused;
 
     control.classList.toggle("playing", playing);
+
     control.classList.toggle("off", !playing);
+
     status.textContent = playing ? "ON" : "OFF";
+
   }
 
-  // ĐÓNG HỘP THOẠI
+  // TÌM CÁC AUDIO KHÁC
+
+  function getOtherAudios() {
+
+    return [...document.querySelectorAll("audio")]
+
+      .filter(audio => audio !== music);
+
+  }
+
+  function hasOtherMusic() {
+
+    return getOtherAudios().some(audio => !audio.paused);
+
+  }
+
+  // ĐÓNG POPUP
+
   function closePopup() {
+
     popup.style.display = "none";
+
     control.style.display = "flex";
+
   }
 
-  // BẬT NHẠC
-  window.playMusic = function () {
-    music.play().then(() => {
-      updateMusicUI();
-      closePopup();
-    }).catch(() => {
-      alert("Không thể phát nhạc. Vui lòng thử lại!");
-    });
-  };
+  // DỪNG NHẠC NỀN
 
-  // KHÔNG BẬT NHẠC
-  window.stopMusic = function () {
+  function pauseBackground() {
+
     music.pause();
-    music.currentTime = 0;
-    updateMusicUI();
-    closePopup();
-  };
 
-  // BẬT / TẮT NHẠC KHI BẤM NÚT
-  function toggleMusic() {
-    if (music.paused) {
-      music.play()
-        .then(updateMusicUI)
-        .catch(() => {
-          alert("Không thể phát nhạc. Vui lòng thử lại!");
-        });
-    } else {
-      music.pause();
-      updateMusicUI();
-    }
+    music.currentTime = 0;
+
+    updateMusicUI();
+
   }
 
-  music.addEventListener("play", updateMusicUI);
-  music.addEventListener("pause", updateMusicUI);
+  // PHÁT NHẠC NỀN
+
+  async function startBackground() {
+
+    if (!backgroundEnabled || hasOtherMusic()) {
+
+      pauseBackground();
+
+      return;
+
+    }
+
+    try {
+
+      await music.play();
+
+      updateMusicUI();
+
+    } catch (error) {
+
+      updateMusicUI();
+
+    }
+
+  }
+
+  // NÚT CÓ
+
+  window.playMusic = async function () {
+
+    backgroundEnabled = true;
+
+    suppressBackgroundResume = false;
+
+    await startBackground();
+
+    closePopup();
+
+  };
+
+  // NÚT KHÔNG
+
+  window.stopMusic = function () {
+
+    backgroundEnabled = false;
+
+    backgroundWasPlaying = false;
+
+    suppressBackgroundResume = true;
+
+    pauseBackground();
+
+    closePopup();
+
+  };
+
+  // NÚT MUSIC ON/OFF
+
+  async function toggleMusic() {
+
+    if (!music.paused) {
+
+      backgroundEnabled = false;
+
+      backgroundWasPlaying = false;
+
+      suppressBackgroundResume = true;
+
+      pauseBackground();
+
+    } else {
+
+      backgroundEnabled = true;
+
+      suppressBackgroundResume = false;
+
+      await startBackground();
+
+    }
+
+  }
+
+  // =====================================
+
+  // QUẢN LÝ NHẠC MUSIC KHÁC
+
+  // =====================================
+
+  // Khi một bài nhạc khác bắt đầu
+
+  document.addEventListener("play", function (event) {
+
+    const audio = event.target;
+
+    if (
+
+      !(audio instanceof HTMLAudioElement) ||
+
+      audio === music
+
+    ) return;
+
+    // Chỉ nhớ trạng thái nếu nhạc nền thực sự đang phát
+
+    if (!music.paused && backgroundEnabled) {
+
+      backgroundWasPlaying = true;
+
+    }
+
+    pauseBackground();
+
+  }, true);
+
+  // Hàm kiểm tra và bật lại nhạc nền
+
+  async function resumeBackgroundIfPossible() {
+
+    if (
+
+      backgroundWasPlaying &&
+
+      backgroundEnabled &&
+
+      !suppressBackgroundResume &&
+
+      !hasOtherMusic()
+
+    ) {
+
+      backgroundWasPlaying = false;
+
+      await startBackground();
+
+    }
+
+  }
+
+  // Khi người dùng tắt nhạc khác
+
+  document.addEventListener("pause", function (event) {
+
+    const audio = event.target;
+
+    if (
+
+      audio instanceof HTMLAudioElement &&
+
+      audio !== music
+
+    ) {
+
+      setTimeout(resumeBackgroundIfPossible, 0);
+
+    }
+
+  }, true);
+
+  // Khi nhạc khác phát hết
+
+  document.addEventListener("ended", function (event) {
+
+    const audio = event.target;
+
+    if (
+
+      audio instanceof HTMLAudioElement &&
+
+      audio !== music
+
+    ) {
+
+      setTimeout(resumeBackgroundIfPossible, 0);
+
+    }
+
+  }, true);
+
+  // =====================================
 
   // KÉO THẢ NÚT MUSIC
+
+  // =====================================
+
   let dragging = false;
+
   let moved = false;
 
   let startX = 0;
+
   let startY = 0;
+
   let startLeft = 0;
+
   let startTop = 0;
 
+  let pointerId = null;
+
   control.addEventListener("pointerdown", function (e) {
+
     if (e.button !== undefined && e.button !== 0) return;
 
     dragging = true;
+
     moved = false;
+
+    pointerId = e.pointerId;
 
     const rect = control.getBoundingClientRect();
 
     startX = e.clientX;
+
     startY = e.clientY;
+
     startLeft = rect.left;
+
     startTop = rect.top;
 
     control.setPointerCapture(e.pointerId);
+
   });
 
   control.addEventListener("pointermove", function (e) {
-    if (!dragging) return;
+
+    if (!dragging || e.pointerId !== pointerId) return;
 
     const dx = e.clientX - startX;
+
     const dy = e.clientY - startY;
 
     if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
+
       moved = true;
+
     }
 
     if (!moved) return;
 
     const maxLeft = window.innerWidth - control.offsetWidth;
+
     const maxTop = window.innerHeight - control.offsetHeight;
 
     const left = Math.max(
+
       0,
+
       Math.min(startLeft + dx, maxLeft)
+
     );
 
     const top = Math.max(
+
       0,
+
       Math.min(startTop + dy, maxTop)
+
     );
 
     control.style.left = left + "px";
+
     control.style.top = top + "px";
+
+    control.style.right = "auto";
+
   });
 
-  control.addEventListener("pointerup", function () {
-    if (!dragging) return;
+  control.addEventListener("pointerup", function (e) {
+
+    if (!dragging || e.pointerId !== pointerId) return;
 
     dragging = false;
 
-    // Chỉ bấm, không kéo
+    pointerId = null;
+
     if (!moved) {
+
       toggleMusic();
+
     }
+
   });
 
   control.addEventListener("pointercancel", function () {
+
     dragging = false;
+
+    pointerId = null;
+
   });
 
-  // GIỮ NÚT TRONG MÀN HÌNH KHI XOAY ĐIỆN THOẠI
+  // GIỮ NÚT TRONG MÀN HÌNH
+
   window.addEventListener("resize", function () {
+
     const rect = control.getBoundingClientRect();
 
     control.style.left = Math.max(
+
       0,
+
       Math.min(rect.left, window.innerWidth - control.offsetWidth)
+
     ) + "px";
 
     control.style.top = Math.max(
+
       0,
+
       Math.min(rect.top, window.innerHeight - control.offsetHeight)
+
     ) + "px";
+
   });
 
+  music.addEventListener("play", updateMusicUI);
+
+  music.addEventListener("pause", updateMusicUI);
+
+  music.addEventListener("ended", updateMusicUI);
+
   updateMusicUI();
+
 })();
+
 </script>
 </body>
 </html>
