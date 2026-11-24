@@ -1,4 +1,591 @@
 <!DOCTYPE html>
+<!-- ==========================================
+
+     NGUYEN LE THANH LOC - PROFILE WEBSITE CARD
+
+========================================== -->
+
+<section class="loc-profile">
+
+  <div class="loc-profile-card">
+
+    <!-- AVATAR -->
+
+    <div class="loc-avatar">
+
+      <img
+
+        src="https://cdn.upanhlaylink.com/i/7KlbleXR.png"
+
+        alt="Nguyen Le Thanh Loc"
+
+        loading="lazy"
+
+      >
+
+    </div>
+
+    <!-- NAME -->
+
+    <h2 class="loc-name">
+
+      Nguyen Le Thanh Loc
+
+      <span class="loc-verified">✓</span>
+
+    </h2>
+
+    <!-- INTRODUCTION -->
+
+    <p class="loc-quote">
+
+      "What the hell is love?"
+
+    </p>
+
+    <p class="loc-description">
+
+      Personal Website · TP. Huế
+
+    </p>
+
+    <!-- PROFILE INFORMATION -->
+
+    <div class="loc-stats">
+
+      <div class="loc-stat">
+
+        <strong>+999</strong>
+
+        <span>Achievement</span>
+
+      </div>
+
+      <div class="loc-stat">
+
+        <strong>2005</strong>
+
+        <span>Year of Birth</span>
+
+      </div>
+
+      <div class="loc-stat">
+
+        <strong>TP. Huế</strong>
+
+        <span>Location</span>
+
+      </div>
+
+    </div>
+
+    <!-- WEBSITE BUTTON -->
+
+    <a
+
+      href="https://nhwquyn.github.io/user.nguyenlethanhloc/"
+
+      target="_blank"
+
+      rel="noopener noreferrer"
+
+      class="loc-visit-btn"
+
+    >
+
+      <span>Truy cập Website</span>
+
+      <span class="loc-arrow">↗</span>
+
+    </a>
+
+    <!-- WEBSITE LINK -->
+
+    <div class="loc-link-area">
+
+      <span class="loc-link-text">
+
+        nhwquyn.github.io/user.nguyenlethanhloc/
+
+      </span>
+
+      <button
+
+        type="button"
+
+        class="loc-copy-btn"
+
+        onclick="locCopyWebsite(this)"
+
+      >
+
+        Sao chép
+
+      </button>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <div class="loc-footer">
+
+      © Nguyen Le Thanh Loc
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+/* MAIN SECTION */
+
+.loc-profile {
+
+  width: 100%;
+
+  padding: 35px 15px;
+
+  box-sizing: border-box;
+
+  font-family: Arial, sans-serif;
+
+}
+
+/* PROFILE CARD */
+
+.loc-profile-card {
+
+  width: 100%;
+
+  max-width: 420px;
+
+  margin: auto;
+
+  padding: 30px 22px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  color: #252a32;
+
+  border-radius: 25px;
+
+  border: 1px solid rgba(0,0,0,0.05);
+
+  box-shadow:
+
+    0 8px 35px rgba(0,0,0,0.08);
+
+  transition: .3s ease;
+
+}
+
+/* AVATAR */
+
+.loc-avatar {
+
+  width: 120px;
+
+  height: 120px;
+
+  margin: auto;
+
+  padding: 4px;
+
+  border: 4px solid #399fe8;
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+
+}
+
+.loc-avatar img {
+
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+}
+
+/* NAME */
+
+.loc-name {
+
+  margin: 20px 0 8px;
+
+  font-size: 23px;
+
+  font-weight: 700;
+
+  line-height: 1.4;
+
+}
+
+.loc-verified {
+
+  display: inline-flex;
+
+  width: 19px;
+
+  height: 19px;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: white;
+
+  background: #319be8;
+
+  border-radius: 50%;
+
+  font-size: 13px;
+
+  vertical-align: middle;
+
+}
+
+/* INTRODUCTION */
+
+.loc-quote {
+
+  margin: 8px 0;
+
+  color: #77818d;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+}
+
+.loc-description {
+
+  color: #89919c;
+
+  font-size: 14px;
+
+}
+
+/* STATS */
+
+.loc-stats {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 8px;
+
+  margin: 30px 0;
+
+}
+
+.loc-stat {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+}
+
+.loc-stat strong {
+
+  font-size: 18px;
+
+  color: #252a32;
+
+}
+
+.loc-stat span {
+
+  color: #89919c;
+
+  font-size: 11px;
+
+}
+
+/* VISIT BUTTON */
+
+.loc-visit-btn {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 16px 20px;
+
+  background: #399fe8;
+
+  color: #ffffff;
+
+  border-radius: 13px;
+
+  text-decoration: none;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  transition: all .3s ease;
+
+}
+
+.loc-visit-btn:hover {
+
+  background: #2085d0;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+
+    0 8px 20px rgba(57,159,232,0.25);
+
+}
+
+.loc-arrow {
+
+  font-size: 22px;
+
+}
+
+/* LINK AREA */
+
+.loc-link-area {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 18px;
+
+}
+
+.loc-link-text {
+
+  flex: 1;
+
+  min-width: 0;
+
+  color: #89919c;
+
+  font-size: 11px;
+
+  overflow-wrap: anywhere;
+
+  text-align: left;
+
+}
+
+/* COPY BUTTON */
+
+.loc-copy-btn {
+
+  flex-shrink: 0;
+
+  padding: 9px 12px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #edf5fc;
+
+  color: #258bd5;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+}
+
+/* FOOTER */
+
+.loc-footer {
+
+  margin-top: 25px;
+
+  padding-top: 15px;
+
+  border-top: 1px solid #eeeeee;
+
+  color: #a0a8b1;
+
+  font-size: 11px;
+
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 480px) {
+
+  .loc-profile {
+
+    padding: 25px 12px;
+
+  }
+
+  .loc-profile-card {
+
+    padding: 25px 17px;
+
+  }
+
+  .loc-name {
+
+    font-size: 21px;
+
+  }
+
+}
+
+/* DARK MODE */
+
+@media (prefers-color-scheme: dark) {
+
+  .loc-profile-card {
+
+    background: #20242b;
+
+    color: #ffffff;
+
+    border-color: #343a43;
+
+  }
+
+  .loc-name,
+
+  .loc-stat strong {
+
+    color: #ffffff;
+
+  }
+
+  .loc-footer {
+
+    border-color: #383e48;
+
+  }
+
+  .loc-copy-btn {
+
+    background: #303d4b;
+
+    color: #75bfff;
+
+  }
+
+}
+
+</style>
+
+<script>
+
+/* COPY WEBSITE LINK */
+
+function locCopyWebsite(button) {
+
+  const website =
+
+    "https://nhwquyn.github.io/user.nguyenlethanhloc/";
+
+  if (navigator.clipboard &&
+
+      window.isSecureContext) {
+
+    navigator.clipboard.writeText(website)
+
+      .then(() => {
+
+        locCopySuccess(button);
+
+      })
+
+      .catch(() => {
+
+        locCopyFallback(website, button);
+
+      });
+
+  } else {
+
+    locCopyFallback(website, button);
+
+  }
+
+}
+
+function locCopySuccess(button) {
+
+  const originalText = "Sao chép";
+
+  button.textContent = "Đã sao chép ✓";
+
+  setTimeout(() => {
+
+    button.textContent = originalText;
+
+  }, 2000);
+
+}
+
+function locCopyFallback(website, button) {
+
+  const input = document.createElement("textarea");
+
+  input.value = website;
+
+  input.style.position = "fixed";
+
+  input.style.opacity = "0";
+
+  document.body.appendChild(input);
+
+  input.select();
+
+  try {
+
+    document.execCommand("copy");
+
+    locCopySuccess(button);
+
+  } catch (error) {
+
+    button.textContent = "Không sao chép được";
+
+  }
+
+  document.body.removeChild(input);
+
+}
+
+</script>
+
+<!-- END PROFILE WEBSITE CARD -->
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -1202,592 +1789,5 @@ user-select: none!important;
 })();
 
 </script>
-	<!-- ==========================================
-
-     NGUYEN LE THANH LOC - PROFILE WEBSITE CARD
-
-========================================== -->
-
-<section class="loc-profile">
-
-  <div class="loc-profile-card">
-
-    <!-- AVATAR -->
-
-    <div class="loc-avatar">
-
-      <img
-
-        src="https://cdn.upanhlaylink.com/i/7KlbleXR.png"
-
-        alt="Nguyen Le Thanh Loc"
-
-        loading="lazy"
-
-      >
-
-    </div>
-
-    <!-- NAME -->
-
-    <h2 class="loc-name">
-
-      Nguyen Le Thanh Loc
-
-      <span class="loc-verified">✓</span>
-
-    </h2>
-
-    <!-- INTRODUCTION -->
-
-    <p class="loc-quote">
-
-      "What the hell is love?"
-
-    </p>
-
-    <p class="loc-description">
-
-      Personal Website · TP. Huế
-
-    </p>
-
-    <!-- PROFILE INFORMATION -->
-
-    <div class="loc-stats">
-
-      <div class="loc-stat">
-
-        <strong>+999</strong>
-
-        <span>Achievement</span>
-
-      </div>
-
-      <div class="loc-stat">
-
-        <strong>2005</strong>
-
-        <span>Year of Birth</span>
-
-      </div>
-
-      <div class="loc-stat">
-
-        <strong>TP. Huế</strong>
-
-        <span>Location</span>
-
-      </div>
-
-    </div>
-
-    <!-- WEBSITE BUTTON -->
-
-    <a
-
-      href="https://nhwquyn.github.io/user.nguyenlethanhloc/"
-
-      target="_blank"
-
-      rel="noopener noreferrer"
-
-      class="loc-visit-btn"
-
-    >
-
-      <span>Truy cập Website</span>
-
-      <span class="loc-arrow">↗</span>
-
-    </a>
-
-    <!-- WEBSITE LINK -->
-
-    <div class="loc-link-area">
-
-      <span class="loc-link-text">
-
-        nhwquyn.github.io/user.nguyenlethanhloc/
-
-      </span>
-
-      <button
-
-        type="button"
-
-        class="loc-copy-btn"
-
-        onclick="locCopyWebsite(this)"
-
-      >
-
-        Sao chép
-
-      </button>
-
-    </div>
-
-    <!-- FOOTER -->
-
-    <div class="loc-footer">
-
-      © Nguyen Le Thanh Loc
-
-    </div>
-
-  </div>
-
-</section>
-
-<style>
-
-/* MAIN SECTION */
-
-.loc-profile {
-
-  width: 100%;
-
-  padding: 35px 15px;
-
-  box-sizing: border-box;
-
-  font-family: Arial, sans-serif;
-
-}
-
-/* PROFILE CARD */
-
-.loc-profile-card {
-
-  width: 100%;
-
-  max-width: 420px;
-
-  margin: auto;
-
-  padding: 30px 22px;
-
-  box-sizing: border-box;
-
-  text-align: center;
-
-  background: #ffffff;
-
-  color: #252a32;
-
-  border-radius: 25px;
-
-  border: 1px solid rgba(0,0,0,0.05);
-
-  box-shadow:
-
-    0 8px 35px rgba(0,0,0,0.08);
-
-  transition: .3s ease;
-
-}
-
-/* AVATAR */
-
-.loc-avatar {
-
-  width: 120px;
-
-  height: 120px;
-
-  margin: auto;
-
-  padding: 4px;
-
-  border: 4px solid #399fe8;
-
-  border-radius: 50%;
-
-  overflow: hidden;
-
-  box-sizing: border-box;
-
-}
-
-.loc-avatar img {
-
-  display: block;
-
-  width: 100%;
-
-  height: 100%;
-
-  object-fit: cover;
-
-  border-radius: 50%;
-
-}
-
-/* NAME */
-
-.loc-name {
-
-  margin: 20px 0 8px;
-
-  font-size: 23px;
-
-  font-weight: 700;
-
-  line-height: 1.4;
-
-}
-
-.loc-verified {
-
-  display: inline-flex;
-
-  width: 19px;
-
-  height: 19px;
-
-  align-items: center;
-
-  justify-content: center;
-
-  color: white;
-
-  background: #319be8;
-
-  border-radius: 50%;
-
-  font-size: 13px;
-
-  vertical-align: middle;
-
-}
-
-/* INTRODUCTION */
-
-.loc-quote {
-
-  margin: 8px 0;
-
-  color: #77818d;
-
-  font-size: 16px;
-
-  font-weight: 600;
-
-}
-
-.loc-description {
-
-  color: #89919c;
-
-  font-size: 14px;
-
-}
-
-/* STATS */
-
-.loc-stats {
-
-  display: grid;
-
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 8px;
-
-  margin: 30px 0;
-
-}
-
-.loc-stat {
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 8px;
-
-}
-
-.loc-stat strong {
-
-  font-size: 18px;
-
-  color: #252a32;
-
-}
-
-.loc-stat span {
-
-  color: #89919c;
-
-  font-size: 11px;
-
-}
-
-/* VISIT BUTTON */
-
-.loc-visit-btn {
-
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-
-  padding: 16px 20px;
-
-  background: #399fe8;
-
-  color: #ffffff;
-
-  border-radius: 13px;
-
-  text-decoration: none;
-
-  font-size: 16px;
-
-  font-weight: 600;
-
-  transition: all .3s ease;
-
-}
-
-.loc-visit-btn:hover {
-
-  background: #2085d0;
-
-  transform: translateY(-3px);
-
-  box-shadow:
-
-    0 8px 20px rgba(57,159,232,0.25);
-
-}
-
-.loc-arrow {
-
-  font-size: 22px;
-
-}
-
-/* LINK AREA */
-
-.loc-link-area {
-
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-
-  gap: 10px;
-
-  margin-top: 18px;
-
-}
-
-.loc-link-text {
-
-  flex: 1;
-
-  min-width: 0;
-
-  color: #89919c;
-
-  font-size: 11px;
-
-  overflow-wrap: anywhere;
-
-  text-align: left;
-
-}
-
-/* COPY BUTTON */
-
-.loc-copy-btn {
-
-  flex-shrink: 0;
-
-  padding: 9px 12px;
-
-  border: none;
-
-  border-radius: 8px;
-
-  background: #edf5fc;
-
-  color: #258bd5;
-
-  font-size: 12px;
-
-  font-weight: 600;
-
-  cursor: pointer;
-
-}
-
-/* FOOTER */
-
-.loc-footer {
-
-  margin-top: 25px;
-
-  padding-top: 15px;
-
-  border-top: 1px solid #eeeeee;
-
-  color: #a0a8b1;
-
-  font-size: 11px;
-
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 480px) {
-
-  .loc-profile {
-
-    padding: 25px 12px;
-
-  }
-
-  .loc-profile-card {
-
-    padding: 25px 17px;
-
-  }
-
-  .loc-name {
-
-    font-size: 21px;
-
-  }
-
-}
-
-/* DARK MODE */
-
-@media (prefers-color-scheme: dark) {
-
-  .loc-profile-card {
-
-    background: #20242b;
-
-    color: #ffffff;
-
-    border-color: #343a43;
-
-  }
-
-  .loc-name,
-
-  .loc-stat strong {
-
-    color: #ffffff;
-
-  }
-
-  .loc-footer {
-
-    border-color: #383e48;
-
-  }
-
-  .loc-copy-btn {
-
-    background: #303d4b;
-
-    color: #75bfff;
-
-  }
-
-}
-
-</style>
-
-<script>
-
-/* COPY WEBSITE LINK */
-
-function locCopyWebsite(button) {
-
-  const website =
-
-    "https://nhwquyn.github.io/user.nguyenlethanhloc/";
-
-  if (navigator.clipboard &&
-
-      window.isSecureContext) {
-
-    navigator.clipboard.writeText(website)
-
-      .then(() => {
-
-        locCopySuccess(button);
-
-      })
-
-      .catch(() => {
-
-        locCopyFallback(website, button);
-
-      });
-
-  } else {
-
-    locCopyFallback(website, button);
-
-  }
-
-}
-
-function locCopySuccess(button) {
-
-  const originalText = "Sao chép";
-
-  button.textContent = "Đã sao chép ✓";
-
-  setTimeout(() => {
-
-    button.textContent = originalText;
-
-  }, 2000);
-
-}
-
-function locCopyFallback(website, button) {
-
-  const input = document.createElement("textarea");
-
-  input.value = website;
-
-  input.style.position = "fixed";
-
-  input.style.opacity = "0";
-
-  document.body.appendChild(input);
-
-  input.select();
-
-  try {
-
-    document.execCommand("copy");
-
-    locCopySuccess(button);
-
-  } catch (error) {
-
-    button.textContent = "Không sao chép được";
-
-  }
-
-  document.body.removeChild(input);
-
-}
-
-</script>
-
-<!-- END PROFILE WEBSITE CARD -->
 </body>
 </html>
