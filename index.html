@@ -594,23 +594,32 @@ user-select: none!important;
 </style>
 </body>
 	
-<!-- NHẠC NỀN -->
+
+<!-- MUSIC PLAYER -->
 <audio id="backgroundMusic" loop preload="auto">
   <source src="https://files.catbox.moe/67sb4b.mp3" type="audio/mpeg">
 </audio>
 
-<!-- HỘP THOẠI -->
+<!-- POPUP KHI VÀO WEBSITE -->
 <div id="musicPopup">
   <div class="music-content">
-    <div class="music-icon">🎵</div>
-    <h3>NHẠC NỀN</h3>
+    <div class="music-icon">♫</div>
+    <h3>BACKGROUND MUSIC</h3>
     <p>Bạn có muốn bật nhạc nền không?</p>
 
     <div class="music-buttons">
       <button onclick="enableMusic()">CÓ</button>
       <button onclick="disableMusic()">KHÔNG</button>
     </div>
+    <small>Enjoy your moment ✨</small>
   </div>
+</div>
+
+<!-- NÚT MUSIC TRÊN TRANG CHỦ -->
+<div class="home-music" id="homeMusic" onclick="toggleMusic()">
+  <span class="home-music-icon">♫</span>
+  <span>MUSIC</span>
+  <span id="musicStatus">OFF</span>
 </div>
 
 <style>
@@ -619,49 +628,52 @@ user-select: none!important;
   inset: 0;
   z-index: 999999;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  background: rgba(0,0,0,.75);
+  backdrop-filter: blur(7px);
 }
 
 .music-content {
   width: 280px;
-  padding: 25px 20px;
-  border-radius: 18px;
-  background: #fff;
-  color: #222;
+  padding: 28px 20px;
+  border-radius: 20px;
+  background: linear-gradient(145deg,#fff,#eee);
   text-align: center;
-  box-shadow: 0 8px 30px rgba(0,0,0,.25);
+  color: #222;
+  box-shadow: 0 15px 40px #0005;
+  animation: popupIn .6s ease;
 }
 
 .music-icon {
-  font-size: 35px;
+  font-size: 45px;
+  color: #168b58;
+  animation: musicMove 1.5s infinite;
 }
 
 .music-content h3 {
-  margin: 10px 0;
+  letter-spacing: 2px;
 }
 
 .music-content p {
   font-size: 14px;
+  color: #666;
 }
 
 .music-buttons {
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin-top: 20px;
+  margin: 20px 0;
 }
 
 .music-buttons button {
-  width: 95px;
+  width: 100px;
   padding: 11px;
   border: none;
   border-radius: 25px;
-  background: #222;
   color: white;
   font-weight: bold;
-  cursor: pointer;
 }
 
 .music-buttons button:first-child {
@@ -671,15 +683,91 @@ user-select: none!important;
 .music-buttons button:last-child {
   background: #777;
 }
+
+.music-content small {
+  color: #999;
+}
+
+/* MUSIC TRÊN TRANG CHỦ */
+.home-music {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 16px;
+  margin: 10px;
+  border-radius: 30px;
+  background: #222;
+  color: white;
+  font-size: 12px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.home-music.active {
+  background: #168b58;
+  box-shadow: 0 0 15px #168b5866;
+}
+
+.home-music-icon {
+  font-size: 19px;
+}
+
+.home-music.active .home-music-icon {
+  animation: rotateMusic 3s linear infinite;
+}
+
+#musicStatus {
+  font-weight: bold;
+}
+
+@keyframes popupIn {
+  from {
+    opacity: 0;
+    transform: scale(.7) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes musicMove {
+  0%,100% { transform: rotate(-12deg); }
+  50% { transform: rotate(12deg); }
+}
+
+@keyframes rotateMusic {
+  to { transform: rotate(360deg); }
+}
 </style>
 
 <script>
 const bgMusic = document.getElementById("backgroundMusic");
-const musicPopup = document.getElementById("musicPopup");
+const popup = document.getElementById("musicPopup");
+const homeMusic = document.getElementById("homeMusic");
+const musicStatus = document.getElementById("musicStatus");
+
+function updateMusic() {
+  const playing = !bgMusic.paused;
+
+  homeMusic.classList.toggle("active", playing);
+  musicStatus.textContent = playing ? "ON" : "OFF";
+}
+
+function closePopup() {
+  popup.style.opacity = "0";
+  popup.style.transition = ".4s";
+
+  setTimeout(() => {
+    popup.style.display = "none";
+  }, 400);
+}
 
 function enableMusic() {
   bgMusic.play().then(() => {
-    musicPopup.style.display = "none";
+    updateMusic();
+    closePopup();
   }).catch(() => {
     alert("Không thể phát nhạc. Vui lòng thử lại!");
   });
@@ -688,8 +776,22 @@ function enableMusic() {
 function disableMusic() {
   bgMusic.pause();
   bgMusic.currentTime = 0;
-  musicPopup.style.display = "none";
+  updateMusic();
+  closePopup();
 }
+
+function toggleMusic() {
+  if (bgMusic.paused) {
+    bgMusic.play().then(updateMusic).catch(() => {});
+  } else {
+    bgMusic.pause();
+    updateMusic();
+  }
+}
+
+bgMusic.addEventListener("play", updateMusic);
+bgMusic.addEventListener("pause", updateMusic);
 </script>
+
 
 </html>
